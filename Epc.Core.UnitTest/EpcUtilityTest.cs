@@ -16,10 +16,20 @@
         }
 
         [Fact]
-        public void Test()
+        public void DecodeIntStringTest()
         {
+            Assert.Equal("1", EpcUtility.DecodeIntString("00000000000000000000000000000001", 0, 32, 0));
+            Assert.Equal("-2147483648", EpcUtility.DecodeIntString("10000000000000000000000000000000", 0, 32, 0));
+
             Assert.Equal("360841", EpcUtility.DecodeIntString("01011000000110001001", 0, 20, 6));
             Assert.Equal("0940136", EpcUtility.DecodeIntString("000011100101100001101000", 0, 24, 7));
+        }
+
+        [Fact]
+        public void DecodeLongStringTest()
+        {
+            Assert.Equal(1, EpcUtility.DecodeLong("0000000000000000000000000000000000000000000000000000000000000001", 0, 64));
+            Assert.Equal(-9223372036854775808, EpcUtility.DecodeLong("1000000000000000000000000000000000000000000000000000000000000000", 0, 64));
 
             Assert.Equal(9200732059, EpcUtility.DecodeLong("00001000100100011010000000011110011011", 0, 38));
         }
@@ -29,6 +39,7 @@
         {
             Assert.Equal("3", EpcUtility.GS1CheckSum("0360841940136"));
             Assert.Equal("8", EpcUtility.GS1CheckSum("8061414112345"));
+            Assert.Equal("0", EpcUtility.GS1CheckSum("4242424244444"));
         }
     }
 }
