@@ -1,10 +1,10 @@
-using Epc.Core.EpcDecoder;
+using Epc.Core.EpcConverter;
 
 namespace Epc.Core.UnitTest
 {
     public class Stgin96Test
     {
-        private Sgtin96 _sgtin96 = new Sgtin96();
+        private Sgtin96Converter _sgtin96 = new Sgtin96Converter();
 
         [Fact]
         public void Sgtin96DecodeTest()

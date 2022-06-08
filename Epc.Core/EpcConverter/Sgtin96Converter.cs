@@ -1,4 +1,4 @@
-﻿using Epc.Core.EpcBinary;
+﻿using Epc.Core.EpcData;
 using Epc.Core.EpcEnums;
 using Epc.Core.PartitionTable;
 using System;

@@ -3,9 +3,9 @@ using Epc.Core.PartitionTable;
 using System;
 using System.Text;
 
-namespace Epc.Core.EpcBinary
+namespace Epc.Core.EpcData
 {
-    public class Sgtin96 : IEpc
+    public class Sgtin96 : IEpcData
     {
         public EpcHeader Header { get; set; }
         public int Filter { get; set; }

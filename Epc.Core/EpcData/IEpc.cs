@@ -1,8 +1,8 @@
 ﻿using Epc.Core.EpcEnums;
 
-namespace Epc.Core.EpcBinary
+namespace Epc.Core.EpcData
 {
-    public interface IEpc
+    public interface IEpcData
     {
         EpcHeader Header { get; set; }
     }
