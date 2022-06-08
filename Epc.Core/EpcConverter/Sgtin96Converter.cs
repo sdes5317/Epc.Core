@@ -8,7 +8,6 @@ namespace Epc.Core.EpcConverter
     public class Sgtin96Converter : IEpcConverter
     {
         public EpcHeader ProtocalHeader => EpcHeader.SGTIN96;
-        private const string PURE_IDENTITY = "sgtin";
 
         public Sgtin96 Decode(string HexString)
         {

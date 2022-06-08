@@ -1,6 +1,4 @@
-﻿using Epc.Core.EpcBinary;
-using Epc.Core.EpcEnums;
-using System.IO;
+﻿using Epc.Core.EpcEnums;
 
 namespace Epc.Core.EpcConverter
 {
