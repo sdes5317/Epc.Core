@@ -55,15 +55,15 @@ namespace Epc.Core
             return builder.ToString();
         }
 
-        public static int DecodeInt(string bitString, int startIndex, int length)
+        public static int BitStringToInt(string bitString, int startIndex, int length)
         {
             return Convert.ToInt32(bitString.Substring(startIndex, length), 2);
         }
-        public static string DecodeIntString(string bitString, int startIndex, int length, int padding)
+        public static string BitStringToIntString(string bitString, int startIndex, int length, int padding)
         {
-            return DecodeInt(bitString, startIndex, length).ToString().PadLeft(padding, '0');
+            return BitStringToInt(bitString, startIndex, length).ToString().PadLeft(padding, '0');
         }
-        public static long DecodeLong(string bitString, int startIndex, int length)
+        public static long BitStringToLong(string bitString, int startIndex, int length)
         {
             return Convert.ToInt64(bitString.Substring(startIndex, length), 2);
         }
@@ -79,12 +79,25 @@ namespace Epc.Core
                 (gs1NoSum[i] - '0') * 1; //even
 
             }
-            
+
             var crc = 10 - (sum % 10);
             //mod 10 twice, for case: 10 % 10 = 0
             crc = crc % 10;
 
             return crc.ToString();
+        }
+
+        internal static string LongToBitString(long value, int padding)
+        {
+            return Convert.ToString(value, 2).PadLeft(padding, '0');
+        }
+        internal static string IntToBitString(int value, int padding)
+        {
+            return Convert.ToString(value, 2).PadLeft(padding, '0');
+        }
+        internal static string IntStringToBitString(string value, int padding)
+        {
+            return IntToBitString(int.Parse(value), padding);
         }
     }
 }
