@@ -2,9 +2,9 @@
 using Epc.Core.EpcEnums;
 using System.IO;
 
-namespace Epc.Core.EpcDecoder
+namespace Epc.Core.EpcConverter
 {
-    public interface IEpc
+    public interface IEpcConverter
     {
         EpcHeader ProtocalHeader { get; }
     }
