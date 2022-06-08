@@ -9,9 +9,7 @@ namespace Epc.Core.UnitTest
         [Fact]
         public void Sgtin96DecodeTest()
         {
-            var bitString = EpcUtility.BytesToBitsString("3074257BF7194E4000001A85");
-
-            var sgtin96Epc = _sgtin96.Decode(bitString);
+            var sgtin96Epc = _sgtin96.Decode("3074257BF7194E4000001A85");
 
             Assert.Equal("urn:epc:tag:sgtin-96:3.0614141.812345.6789", sgtin96Epc.ToEpcTagUri());
 

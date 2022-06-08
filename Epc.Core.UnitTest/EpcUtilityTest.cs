@@ -12,7 +12,7 @@
         [Fact]
         public void ByteStringToBitsStringTest()
         {
-            Assert.Equal("1010101111001101", EpcUtility.BytesToBitsString("ABCD"));
+            Assert.Equal("1010101111001101", EpcUtility.HexToBitString("ABCD"));
         }
 
         [Fact]

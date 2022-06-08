@@ -11,15 +11,17 @@ namespace Epc.Core.EpcConverter
 
         public Sgtin96 Decode(string HexString)
         {
+            var bitString = EpcUtility.HexToBitString(HexString);
+
             //4365 E.2 Decoding an SGTIN-96 to a Serialised Global Trade Item Number (SGTIN)
             var index = 0;
 
             var epc = new Sgtin96();
-            epc.Header = EpcUtility.GetEpcHeader((byte)EpcUtility.BitStringToInt(HexString, index, 8));
+            epc.Header = EpcUtility.GetEpcHeader((byte)EpcUtility.BitStringToInt(bitString, index, 8));
             index += 8;
-            epc.Filter = EpcUtility.BitStringToInt(HexString, index, 3);
+            epc.Filter = EpcUtility.BitStringToInt(bitString, index, 3);
             index += 3;
-            epc.Partition = EpcUtility.BitStringToInt(HexString, index, 3);
+            epc.Partition = EpcUtility.BitStringToInt(bitString, index, 3);
             index += 3;
 
             var table = SgtinPartitionTable.GetByPartitionValue(epc.Partition);
@@ -29,11 +31,11 @@ namespace Epc.Core.EpcConverter
             //4378 partition code also determines the number of decimal digits to be used for those fields in the
             //4379 EPC Tag URI (the decimal representation for those two fields is padded on the left with zero
             //4380 characters as necessary). See Section 14.2. (for the SGTIN EPC only).
-            epc.GS1CompanyPrefix = EpcUtility.BitStringToIntString(HexString, index, table.GS1CompanyPrefixBits, table.GS1CompanyPrefixDigits);
+            epc.GS1CompanyPrefix = EpcUtility.BitStringToIntString(bitString, index, table.GS1CompanyPrefixBits, table.GS1CompanyPrefixDigits);
             index += table.GS1CompanyPrefixBits;
-            epc.IndicatorItemRef = EpcUtility.BitStringToIntString(HexString, index, table.ItemReferenceBits, table.ItemReferenceDigits);
+            epc.IndicatorItemRef = EpcUtility.BitStringToIntString(bitString, index, table.ItemReferenceBits, table.ItemReferenceDigits);
             index += table.ItemReferenceBits;
-            epc.SerialNumber = EpcUtility.BitStringToInt(HexString, index, 38);
+            epc.SerialNumber = EpcUtility.BitStringToInt(bitString, index, 38);
 
             return epc;
 

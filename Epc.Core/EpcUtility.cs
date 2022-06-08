@@ -33,7 +33,7 @@ namespace Epc.Core
             return (EpcHeader)Enum.Parse(typeof(EpcHeader), name);
         }
 
-        public static string BytesToBitsString(string hexString)
+        public static string HexToBitString(string hexString)
         {
             var bytes = new byte[hexString.Length / 2];
             for (int i = 0; i < hexString.Length; i += 2)
