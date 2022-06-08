@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Epc.Core.EpcBinary
 {
-    public class Sgtin96Epc : IEpcBinary
+    public class Sgtin96 : IEpc
     {
         public EpcHeader Header { get; set; }
         public int Filter { get; set; }

@@ -2,7 +2,7 @@
 
 namespace Epc.Core.EpcBinary
 {
-    public interface IEpcBinary
+    public interface IEpc
     {
         EpcHeader Header { get; set; }
     }

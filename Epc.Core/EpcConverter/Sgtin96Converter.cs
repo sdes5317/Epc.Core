@@ -14,12 +14,12 @@ namespace Epc.Core.EpcConverter
         public EpcHeader ProtocalHeader => EpcHeader.SGTIN96;
         private const string PURE_IDENTITY = "sgtin";
 
-        public Sgtin96Epc Decode(string HexString)
+        public Sgtin96 Decode(string HexString)
         {
             //4365 E.2 Decoding an SGTIN-96 to a Serialised Global Trade Item Number (SGTIN)
             var index = 0;
 
-            var epc = new Sgtin96Epc();
+            var epc = new Sgtin96();
             epc.Header = EpcUtility.GetEpcHeader((byte)EpcUtility.BitStringToInt(HexString, index, 8));
             index += 8;
             epc.Filter = EpcUtility.BitStringToInt(HexString, index, 3);
@@ -44,7 +44,7 @@ namespace Epc.Core.EpcConverter
 
         }
 
-        public Sgtin96Epc Encode(string epcTagUri)
+        public Sgtin96 Encode(string epcTagUri)
         {
             if (!epcTagUri.StartsWith("urn:epc:tag:sgtin-96:"))
             {
@@ -54,7 +54,7 @@ namespace Epc.Core.EpcConverter
             epcTagUri = epcTagUri.Replace("urn:epc:tag:sgtin-96:", "");
             var parts = epcTagUri.Split('.');
 
-            var epc = new Sgtin96Epc();
+            var epc = new Sgtin96();
             epc.Header = EpcHeader.SGTIN96;
             epc.Filter = Convert.ToInt32(parts[0]);
             var table = SgtinPartitionTable.GetByGS1CompanyPrefixDigits(parts[1].Length);
