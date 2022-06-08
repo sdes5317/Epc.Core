@@ -1,11 +1,7 @@
 ﻿using Epc.Core.EpcBinary;
 using Epc.Core.EpcEnums;
-using Epc.Core.Extension;
 using Epc.Core.PartitionTable;
 using System;
-using System.Collections;
-using System.IO;
-using System.Text;
 
 namespace Epc.Core.EpcConverter
 {

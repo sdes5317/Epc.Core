@@ -1,8 +1,6 @@
 ﻿using Epc.Core.EpcEnums;
-using Epc.Core.Extension;
 using Epc.Core.PartitionTable;
 using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace Epc.Core.EpcBinary
