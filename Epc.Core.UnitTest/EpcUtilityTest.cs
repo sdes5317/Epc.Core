@@ -18,20 +18,20 @@
         [Fact]
         public void DecodeIntStringTest()
         {
-            Assert.Equal("1", EpcUtility.DecodeIntString("00000000000000000000000000000001", 0, 32, 0));
-            Assert.Equal("-2147483648", EpcUtility.DecodeIntString("10000000000000000000000000000000", 0, 32, 0));
+            Assert.Equal("1", EpcUtility.BitStringToIntString("00000000000000000000000000000001", 0, 32, 0));
+            Assert.Equal("-2147483648", EpcUtility.BitStringToIntString("10000000000000000000000000000000", 0, 32, 0));
 
-            Assert.Equal("360841", EpcUtility.DecodeIntString("01011000000110001001", 0, 20, 6));
-            Assert.Equal("0940136", EpcUtility.DecodeIntString("000011100101100001101000", 0, 24, 7));
+            Assert.Equal("360841", EpcUtility.BitStringToIntString("01011000000110001001", 0, 20, 6));
+            Assert.Equal("0940136", EpcUtility.BitStringToIntString("000011100101100001101000", 0, 24, 7));
         }
 
         [Fact]
         public void DecodeLongStringTest()
         {
-            Assert.Equal(1, EpcUtility.DecodeLong("0000000000000000000000000000000000000000000000000000000000000001", 0, 64));
-            Assert.Equal(-9223372036854775808, EpcUtility.DecodeLong("1000000000000000000000000000000000000000000000000000000000000000", 0, 64));
+            Assert.Equal(1, EpcUtility.BitStringToLong("0000000000000000000000000000000000000000000000000000000000000001", 0, 64));
+            Assert.Equal(-9223372036854775808, EpcUtility.BitStringToLong("1000000000000000000000000000000000000000000000000000000000000000", 0, 64));
 
-            Assert.Equal(9200732059, EpcUtility.DecodeLong("00001000100100011010000000011110011011", 0, 38));
+            Assert.Equal(9200732059, EpcUtility.BitStringToLong("00001000100100011010000000011110011011", 0, 38));
         }
 
         [Fact]
