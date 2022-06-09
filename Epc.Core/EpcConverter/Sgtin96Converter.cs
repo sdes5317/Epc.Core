@@ -35,7 +35,7 @@ namespace Epc.Core.EpcConverter
             index += table.GS1CompanyPrefixBits;
             epc.IndicatorItemRef = EpcUtility.BitStringToIntString(bitString, index, table.ItemReferenceBits, table.ItemReferenceDigits);
             index += table.ItemReferenceBits;
-            epc.SerialNumber = EpcUtility.BitStringToInt(bitString, index, 38);
+            epc.SerialNumber = EpcUtility.BitStringToLong(bitString, index, 38);
 
             return epc;
 
