@@ -20,12 +20,12 @@ namespace Epc.Core.PartitionTable
         public static SgtinPartitionTable GetByPartitionValue(int partitionValue)
         {
             return _tablePartitionValue
-                .TryGetValue(partitionValue, out var table) ? table : throw new ArgumentException($"PartitionValue is not define in table, value:{partitionValue}");
+                .TryGetValue(partitionValue, out var table) ? table : throw new ArgumentException($"Wrong format! PartitionValue:{partitionValue}");
         }
         public static SgtinPartitionTable GetByGS1CompanyPrefixDigits(int GS1CompanyPrefixDigits)
         {
             return _tableGS1CompanyPrefixDigits
-                .TryGetValue(GS1CompanyPrefixDigits, out var table) ? table : throw new ArgumentException($"GS1CompanyPrefixDigits is not define in table, value:{GS1CompanyPrefixDigits}");
+                .TryGetValue(GS1CompanyPrefixDigits, out var table) ? table : throw new ArgumentException($"Wrong format! GS1CompanyPrefixDigits:{GS1CompanyPrefixDigits}");
         }
 
         private static Dictionary<int, SgtinPartitionTable> _tablePartitionValue = GetTables().ToDictionary(t => t.PartitionValue);

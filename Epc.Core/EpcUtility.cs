@@ -30,6 +30,7 @@ namespace Epc.Core
         public static EpcHeader GetEpcHeader(byte byt)
         {
             var name = Enum.GetName(typeof(EpcHeader), byt);
+            if (name is null) throw new ArgumentException($"Wrong format! epc header:{byt}");
             return (EpcHeader)Enum.Parse(typeof(EpcHeader), name);
         }
 
