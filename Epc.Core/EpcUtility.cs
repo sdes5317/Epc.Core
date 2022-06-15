@@ -88,17 +88,17 @@ namespace Epc.Core
             return crc.ToString();
         }
 
-        internal static string LongToBitString(long value, int padding)
+        internal static string LongToBitString(long value, int paddingWidth)
         {
-            return Convert.ToString(value, 2).PadLeft(padding, '0');
+            return Convert.ToString(value, 2).PadLeft(paddingWidth, '0');
         }
-        internal static string IntToBitString(int value, int padding)
+        internal static string IntToBitString(int value, int paddingWidth)
         {
-            return Convert.ToString(value, 2).PadLeft(padding, '0');
+            return Convert.ToString(value, 2).PadLeft(paddingWidth, '0');
         }
-        internal static string IntStringToBitString(string value, int padding)
+        internal static string IntStringToBitString(string value, int paddingWidth)
         {
-            return IntToBitString(int.Parse(value), padding);
+            return IntToBitString(int.Parse(value), paddingWidth);
         }
     }
 }

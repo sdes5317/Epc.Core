@@ -7,7 +7,7 @@ namespace Epc.Core.UnitTest
         private Sgtin96Converter _sgtin96 = new Sgtin96Converter();
 
         [Fact]
-        public void Sgtin96DecodeTest()
+        public void Sgtin96Decode()
         {
             var sgtin96Epc = _sgtin96.Decode("3074257BF7194E4000001A85");
 
@@ -19,7 +19,7 @@ namespace Epc.Core.UnitTest
         }
 
         [Fact]
-        public void Sgtin96EncodeTest()
+        public void Sgtin96Encode()
         {
             var epcTagUri = "urn:epc:tag:sgtin-96:3.0614141.812345.6789";
 
