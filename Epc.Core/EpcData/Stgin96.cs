@@ -24,8 +24,13 @@ namespace Epc.Core.EpcData
         }
         public string ToGS1ElementString()
         {
-            var gtin13String = $"{IndicatorItemRef[0]}{GS1CompanyPrefix}{IndicatorItemRef.Substring(1, IndicatorItemRef.Length - 1)}";
-            return $"(01){gtin13String}{EpcUtility.GS1CheckSum(gtin13String)}(21){SerialNumber}";
+            return $"(01){ToGtin14()}(21){SerialNumber}";
+        }
+
+        public string ToGtin14()
+        {
+            var gtin13NoCrc = $"{IndicatorItemRef[0]}{GS1CompanyPrefix}{IndicatorItemRef.Substring(1, IndicatorItemRef.Length - 1)}";
+            return gtin13NoCrc + EpcUtility.GS1CheckSum(gtin13NoCrc);
         }
 
         public string ToHexString()

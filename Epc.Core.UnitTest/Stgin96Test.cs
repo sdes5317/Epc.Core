@@ -16,6 +16,8 @@ namespace Epc.Core.UnitTest
             Assert.Equal("urn:epc:id:sgtin:0614141.812345.6789", sgtin96Epc.ToEpcPureIdentityUri());
 
             Assert.Equal("(01)80614141123458(21)6789", sgtin96Epc.ToGS1ElementString());
+
+            Assert.Equal("80614141123458", sgtin96Epc.ToGtin14());
         }
 
         [Fact]
@@ -24,6 +26,8 @@ namespace Epc.Core.UnitTest
             var epcTagUri = "urn:epc:tag:sgtin-96:3.0614141.812345.6789";
 
             var sgtin96Epc = _sgtin96.Encode(epcTagUri);
+
+            Assert.Equal("80614141123458", sgtin96Epc.ToGtin14());
 
             Assert.Equal("(01)80614141123458(21)6789", sgtin96Epc.ToGS1ElementString());
 
